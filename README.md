@@ -29,7 +29,6 @@
 
 ![Wireframe image](/img/wireframe.png)
 
-Hello.
 
 <!-- <a href="wireframe.html"></a>
 
