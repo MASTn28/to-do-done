@@ -13,65 +13,101 @@
 <body>
 
     <header>
-        <h1>To Do or Not To Do</h1>
+        <div>
+            <h1>To Do or Not To Do</h1> <hr> 
+            
+            <br> <br>
+
+        </div>
     </header>
 
     <main>
-        <!-- /Using DIV to hold form input. -->
+
         <div>
-            <form id="taskForm">
-
-                <label id="title">
-                    <input placeholder="Name Your To-Do List">
-                </label>
-
-                <br>
-
-                <label id="taskOne">
-                    <input type="text" placeholder="List Item Here" maxlength="50" size="40">
-                    <select name="priority" id="priorityOne">
-                        <option value="low">Low</option>
-                        <option value="medium">Medium</option>
-                        <option value="high">High</option>
-                    </select>
-                </label>
-
-
-
-                <br>
-
-                <label id="taskTwo">
-                    <input type="text" placeholder="List Item Here" maxlength="50" size="40">
-                    <select name="priority" id="priorityTwo">
-                        <option value="low">Low</option>
-                        <option value="medium">Medium</option>
-                        <option value="high">High</option>
-                    </select>
-                </label>
-
-                <br>
-
-                <label id="taskThree">
-                    <input type="text" placeholder="List Item Here" maxlength="50" size="40">
-                    <select name="priority" id="priorityThree">
-                        <option value="low">Low</option>
-                        <option value="medium">Medium</option>
-                        <option value="high">High</option>
-                    </select>
-                </label>
-                <br>
-                <br>
-                <button type="submit">Create List</button>
-
+            <form id="title">
+                <input type="text" placeholder="Enter List Title" name="listTitle">
+                <button type="submit" id="buttonTitle">Add Title</button>
             </form>
 
+            <form id="add">
+                <input type="text" placeholder="Write here" name="taskName">
+                <select placeholder="priority" name="taskPriority" id="priorityOne">
+                <option value="low">Low priority</option>
+                <option value="medium">Medium priority</option>
+                <option value="high">High priority</option>
+                </select>
+                <button type="submit" id="buttonTask">Submit</button>
+            </form>
+
+            <br><br>
+
+            <ul>
+            </ul>
         </div>
+
+        <div>
+            <h2 id="h2Title"></h2>
+            <ul id="ul"></ul>
+        </div>
+
     </main>
 
     <footer>
 
     </footer>
-<script src="js/app.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>
+
+
+
+<!-- Using DIV to hold form input. -->
+<!-- <div>
+    <form id="taskForm">
+
+        <label id="title">
+            <input placeholder="Name Your To-Do List">
+        </label>
+
+        <br>
+
+        <label id="taskOne">
+            <input type="text" placeholder="List Item Here" maxlength="50" size="40">
+            <select name="priority" id="priorityOne">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+        </label>
+
+
+
+        <br>
+
+        <label id="taskTwo">
+            <input type="text" placeholder="List Item Here" maxlength="50" size="40">
+            <select name="priority" id="priorityTwo">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+        </label>
+
+        <br>
+
+        <label id="taskThree">
+            <input type="text" placeholder="List Item Here" maxlength="50" size="40">
+            <select name="priority" id="priorityThree">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+        </label>
+        <br>
+        <br>
+        <button type="submit">Create List</button>
+
+    </form>
+
+</div> -->
