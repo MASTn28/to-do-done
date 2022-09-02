@@ -50,6 +50,8 @@ function newTask(event) {
     console.log(taskArray);
 }
 
+//
+
 
 
 //console.log('On the other side of the screen, it all looks so easy.');
