@@ -38,24 +38,34 @@ formAdd.addEventListener('submit', newTask);
 
 function newTask(event) {
 
-    event.preventDefault();    //prevents refresh
+    event.preventDefault(); // prevents refresh
     new Task(event.target.taskName.value, event.target.taskPriority.value); // (text, priority)
     //event.target references something when it's fired, in this case taskName's value.
     let list = document.getElementById('ul');
 
     let li = document.createElement('li'); // DOM manipulation
-    li.innerText = event.target.taskName.value + '; ' + event.target.taskPriority.value;
 
+    let objectText = taskArray[taskArray.length - 1].text;
+    let objectPriority = taskArray[taskArray.length - 1].priority;
+    li.innerText = `${objectText}; ${objectPriority}`;
     list.append(li);
     console.log(taskArray);
-    let deleteButton = document.createElement('button');
-    li.append(deleteButton);
-}
-deleteButton.addEventListener('submit', deleteTask);
 
-function deleteTask(event) {
-li.remove(event.target.taskName.value + '; ' + event.target.taskPriority.value);
+    let deleteButton = document.createElement('button');
+    deleteButton.innerHTML = 'Delete';
+    li.appendChild(deleteButton);
+    deleteButton.addEventListener('click', function() {
+        li.remove();
+        delete taskArray[taskArray.length - 1];
+    });
 }
+
+
+// deleteButton.addEventListener('submit', deleteTask);
+
+// function deleteTask(event) {
+
+// }
 
 
 
