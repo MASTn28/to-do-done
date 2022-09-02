@@ -4,32 +4,52 @@
 
 let taskArray = [];
 
+let listTitle = '';
+
 //-------------------- Constructor Function
 
-function Task(text) {
+function Task(text, priority) {
     this.text = text;
+    this.priority = priority;
     taskArray.push(this);
 }
 
-//-------------------- Adds Event Listener with submit and function arguments
+//-------------------- Adds Event Listeners with submit and function arguments
 
-let form = document.getElementById("add");
-form.addEventListener('submit', newTask);
+let formTitle = document.getElementById('title');
+formTitle.addEventListener('submit', newTitle);
+
+//-------------------- Event Handler function for Title
+
+function newTitle(event) {
+    event.preventDefault();
+    listTitle = event.target.listTitle.value;
+    document.getElementById('title').innerHTML = '';
+    let getTitle = document.getElementById('h2Title');
+    getTitle.innerText = listTitle;
+}
+
+//--------------------
+
+let formAdd = document.getElementById('add');
+formAdd.addEventListener('submit', newTask);
 
 //--------------------
 
 function newTask(event) {
 
     event.preventDefault();    //prevents refresh
-    new Task(event.target.taskName.value);
+    new Task(event.target.taskName.value, event.target.taskPriority.value); // (text, priority)
     //event.target references something when it's fired, in this case taskName's value.
     let list = document.getElementById('ul');
 
     let li = document.createElement('li'); // DOM manipulation
-    li.innerText = event.target.taskName.value;
+    li.innerText = event.target.taskName.value + '; ' + event.target.taskPriority.value;
+        // 
     list.append(li);
     console.log(taskArray);
 }
+
 
 
 //console.log('On the other side of the screen, it all looks so easy.');
