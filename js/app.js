@@ -45,12 +45,18 @@ function newTask(event) {
 
     let li = document.createElement('li'); // DOM manipulation
     li.innerText = event.target.taskName.value + '; ' + event.target.taskPriority.value;
-        // 
+
     list.append(li);
     console.log(taskArray);
+    let deleteButton = document.createElement('button');
+    li.append(deleteButton);
+}
+deleteButton.addEventListener('submit', deleteTask);
+
+function deleteTask(event) {
+li.remove(event.target.taskName.value + '; ' + event.target.taskPriority.value);
 }
 
-// Blah Blah
 
 
 
