@@ -11,6 +11,7 @@ let listTitle = '';
 function Task(text, priority) {
     this.text = text;
     this.priority = priority;
+    //this.id = `${taskArray[i]}`;
     taskArray.push(this);
 }
 
@@ -52,11 +53,17 @@ function newTask(event) {
     console.log(taskArray);
 
     let deleteButton = document.createElement('button');
+    deleteButton.setAttribute('id', `${[taskArray.length - 1]}`);
     deleteButton.innerHTML = 'Delete';
     li.appendChild(deleteButton);
     deleteButton.addEventListener('click', function() {
         li.remove();
-        delete taskArray[taskArray.length - 1];
+        if (deleteButton.id === li.id) {
+            // delete object from taskArray
+        }
+
+        console.log(taskArray);
+
     });
 }
 
