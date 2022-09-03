@@ -15,7 +15,7 @@ function Task(text, priority) {
     taskArray.push(this);
 }
 
-//-------------------- Adds Event Listeners with submit and function arguments
+//-------------------- Event Listener for submitting Title
 
 let formTitle = document.getElementById('title');
 formTitle.addEventListener('submit', newTitle);
@@ -30,7 +30,7 @@ function newTitle(event) {
     getTitle.innerText = listTitle;
 }
 
-//--------------------
+//-------------------- Event Listener for submitting Tasks
 
 let formAdd = document.getElementById('add');
 formAdd.addEventListener('submit', newTask);
@@ -67,15 +67,55 @@ function newTask(event) {
     });
 }
 
-
 // deleteButton.addEventListener('submit', deleteTask);
-
 // function deleteTask(event) {
-
 // }
 
+//-------------------- Event Listener
+
+let localStore = document.getElementById('saveLocal');
+localStore.addEventListener('click', saveList);
+
+//-------------------- Function called on click.Turns all array object -> strings
+
+function saveList() {
+    let localTitle = JSON.stringify(listTitle);
+    let localList = JSON.stringify(taskArray);
+
+    return localStorage.setItem('title', localTitle);
+    return localStorage.setItem('key', localList);
+
+}
+
+//-------------------- Event Listener
+
+let getLocal = document.getElementById('getLocal');
+getLocal.addEventListener('click', getList);
+
+//-------------------- Function to retrieve key and parse content.
+
+function getList() {
+    let retrieve = localStorage.getItem('key');
+    if(retrieve) {
+        taskArray = JSON.parse(retrieve);
+        alert('Test');
+
+        //for loop 
+    }
+}
+
+function saveTitle() 
 
 
+// function retrievelist() {
+//     let getList = localStorage.getItem('key');
+//     if(getList) {
+//         taskArray = JSON.parse(getList);
+//     }
+// }
+
+console.log(taskArray);
+console.log(getList());
 
 //console.log('On the other side of the screen, it all looks so easy.');
 
@@ -150,7 +190,3 @@ function newTask(event) {
 
 //--------------------FUNCTION CALLS
 // load page
-
-
-//-------------------- Tom's JS.
-
