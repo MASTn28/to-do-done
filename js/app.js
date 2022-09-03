@@ -28,6 +28,9 @@ function newTitle(event) {
     document.getElementById('title').innerHTML = '';
     let getTitle = document.getElementById('h2Title');
     getTitle.innerText = listTitle;
+
+    saveTitle();
+    // saveTitle invokes function to save title to local storage.
 }
 
 //-------------------- Event Listener for submitting Tasks
@@ -35,7 +38,7 @@ function newTitle(event) {
 let formAdd = document.getElementById('add');
 formAdd.addEventListener('submit', newTask);
 
-//--------------------
+//-------------------- Function newTask creates new objects/tasks.
 
 function newTask(event) {
 
@@ -56,7 +59,7 @@ function newTask(event) {
     deleteButton.setAttribute('id', `${[taskArray.length - 1]}`);
     deleteButton.innerHTML = 'Delete';
     li.appendChild(deleteButton);
-    deleteButton.addEventListener('click', function() {
+    deleteButton.addEventListener('click', function () {
         li.remove();
         if (deleteButton.id === li.id) {
             // delete object from taskArray
@@ -71,6 +74,15 @@ function newTask(event) {
 // function deleteTask(event) {
 // }
 
+//-------------------- Local Storage stuff
+
+//-------------------- Function saves title to local storage. Invoked in title submission function above.
+
+function saveTitle() {
+    let localTitle = JSON.stringify(listTitle);
+    return localStorage.setItem('title', localTitle);
+}
+
 //-------------------- Event Listener
 
 let localStore = document.getElementById('saveLocal');
@@ -79,12 +91,10 @@ localStore.addEventListener('click', saveList);
 //-------------------- Function called on click.Turns all array object -> strings
 
 function saveList() {
-    let localTitle = JSON.stringify(listTitle);
     let localList = JSON.stringify(taskArray);
-
-    return localStorage.setItem('title', localTitle);
     return localStorage.setItem('key', localList);
 
+    // condition to prevent null being saved to localStorage.
 }
 
 //-------------------- Event Listener
@@ -96,26 +106,22 @@ getLocal.addEventListener('click', getList);
 
 function getList() {
     let retrieve = localStorage.getItem('key');
-    if(retrieve) {
+    if (retrieve) {
         taskArray = JSON.parse(retrieve);
-        alert('Test');
+        // alert('Test');
 
-        //for loop 
+        for (let i = 0; i < taskArray.length; i++) {
+
+            let ul = document.getElementById('printList');
+            let text = taskArray[i].text;
+            let priority = taskArray[i].priority;
+
+            let li = document.createElement('li');
+            li = `${text}. Priority: ${priority}`;
+            ul.append(li);
+        }
     }
 }
-
-function saveTitle() 
-
-
-// function retrievelist() {
-//     let getList = localStorage.getItem('key');
-//     if(getList) {
-//         taskArray = JSON.parse(getList);
-//     }
-// }
-
-console.log(taskArray);
-console.log(getList());
 
 //console.log('On the other side of the screen, it all looks so easy.');
 
