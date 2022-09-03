@@ -54,7 +54,7 @@ function newTask(event) {
     list.append(li);
     console.log(taskArray);
 
-    let deleteButton = document.createElement('button1');
+    let deleteButton = document.createElement('button');
     deleteButton.innerHTML = 'Delete';
     li.appendChild(deleteButton);
     deleteButton.addEventListener('click', function() {
