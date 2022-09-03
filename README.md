@@ -6,7 +6,7 @@
 - [Manuch Sadri](https://github.com/mcsaadri)
 - [Tom Taylor](https://github.com/tomgtaylor)
 
-## Name of Project: TO DO OR NOT TO DO
+## Name of Project: To-Do Done
 
 ## Description
 
