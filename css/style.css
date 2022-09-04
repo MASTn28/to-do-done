@@ -117,11 +117,6 @@ h2 {
 	margin-top: 3rem;
 }
 
-#toDoList {
-	display: flex;
-
-}
-
 li {
 	display: block;
 	width: 100%;
@@ -153,3 +148,27 @@ ul li.checked {
 ul li:before {
   content: '✓';
 }
+
+#recallButtons {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+#getLocal, #saveLocal {
+	display: block;
+	width: 100%;
+	font-size: 1.125rem;
+	padding: 1rem .5rem;
+	color: whitesmoke;
+	font-weight: 600;
+	text-transform: uppercase;
+	background-color: goldenrod;
+	box-shadow: 0px 0px 4px whitesmoke;
+	border-radius: 1.5rem;
+	cursor: pointer;
+	transition: 0.2s ease-out;
+}
+
+/* Inspiration for design and CSS structure from Tyler Potts' video (https://youtu.be/6eFwtaZf6zc) */

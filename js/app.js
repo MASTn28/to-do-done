@@ -50,7 +50,7 @@ function newTask(event) {
 
     let objectText = taskArray[taskArray.length - 1].text;
     let objectPriority = taskArray[taskArray.length - 1].priority;
-    li.innerText = `${objectText}; ${objectPriority}`;
+    li.innerText = `${objectText} -  Priority: ${objectPriority}`;
     list.append(li);
     console.log(taskArray);
 
@@ -112,7 +112,7 @@ function getList() {
     }
 }
 
-// *Used W3schools.com tutorial to add strikethrough
+// Used W3schools.com tutorial to add strikethrough
 let list = document.getElementById('ul');
 list.addEventListener('click', function (ev) {
     if (ev.target.tagName === 'LI') {
