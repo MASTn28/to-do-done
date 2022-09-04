@@ -3,15 +3,16 @@
 // Tom's code under branch tom1
 
 let taskArray = [];
-
 let listTitle = '';
+let taskList; // store DOM manipulation for task list
 
 //-------------------- Constructor Function
 
 function Task(text, priority) {
-    this.text = text;
-    this.priority = priority;
-    taskArray.push(this);
+    this.text = text; // store task name/description
+    this.priority = priority; // store task priority
+    this.completed; // store task completion task
+    taskArray.push(this); // add task to new last element of taskArray
 }
 
 //-------------------- Event Listener for submitting Title
@@ -32,7 +33,7 @@ function newTitle(event) {
     // saveTitle invokes function to save title to local storage.
 }
 
-//--------------------
+//-------------------- Event listener for adding a new task
 
 let formAdd = document.getElementById('add');
 formAdd.addEventListener('submit', newTask);
@@ -40,27 +41,63 @@ formAdd.addEventListener('submit', newTask);
 //-------------------- Function newTask To Add New Task Item
 
 function newTask(event) {
-
-    event.preventDefault(); // prevents refresh
+    // prevent page refresh
+    event.preventDefault();
+    //create new Task with user's input values
     new Task(event.target.taskName.value, event.target.taskPriority.value); // (text, priority)
-    //event.target references something when it's fired, in this case taskName's value.
+    // print task list on screen
+    taskList = renderList();
+    // reset the add task form to blank/default fields
+    document.getElementById('add').reset();
+}
+
+function renderList() {
+    // clear task list of any previously rendered tasks
+    document.getElementById('ul').innerHTML = '';
+    // select <ul> element for DOM manipulation
     let list = document.getElementById('ul');
+    // create vars for DOM manipulation
+    let li;
+    let deleteButton;
 
-    let li = document.createElement('li'); // DOM manipulation
+    // loop through taskArray to print each task's properties on screen
+    for(let i = 0; i < taskArray.length; i++) {
+        // assign html element and attributes for li
+        li = document.createElement('li');
+        li.setAttribute('class', 'taskItem');
+        li.setAttribute('id', `task${[i]}`);
 
-    let objectText = taskArray[taskArray.length - 1].text;
-    let objectPriority = taskArray[taskArray.length - 1].priority;
-    li.innerText = `${objectText}; ${objectPriority}`;
-    list.append(li);
+        // assign task properties to li.innertext to be printed on-screen and append li to list
+        let objectText = taskArray[i].text;
+        let objectPriority = taskArray[i].priority;
+        li.innerText = `${objectText}; ${objectPriority}`;
+        list.append(li);
+
+        // assign html element and attributes for deleteButton, and append to li
+        deleteButton = document.createElement('button');
+        deleteButton.setAttribute('class', 'deleteButton');
+        deleteButton.setAttribute('id', `delete${[i]}`);
+        deleteButton.innerHTML = 'Delete';
+        li.appendChild(deleteButton);
+    }
     console.log(taskArray);
+    console.log(list);
+    // return DOM manipulation assembled list to taskList
+    return list;
 
-    let deleteButton = document.createElement('button');
-    deleteButton.innerHTML = 'Delete';
-    li.appendChild(deleteButton);
-    deleteButton.addEventListener('click', function() {
-        li.remove();
-        delete taskArray[taskArray.length - 1];
-    });
+    // event listener and handler for deleteButton
+    // deleteButton.addEventListener('click', function() {
+    //     li.remove();
+    //     console.log(li.id);
+    //     let index = Number(li.id.substring(4));
+    //     console.log(index);
+
+    //     delete taskArray[index];
+    //     taskArray = taskArray.filter(Boolean);
+
+    //     console.log(taskArray);
+
+    // });
 }
 
 //-------------------- Local Storage stuff
