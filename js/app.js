@@ -115,6 +115,7 @@ function deleteTask(event){
     // taskArray = taskArray.filter(Boolean);
     // taskList = renderList();
     // console.log(taskArray);
+
 }
 
 //-------------------- Local Storage stuff
@@ -165,5 +166,13 @@ function getList() {
         }
     }
 }
+
+// Used W3schools.com tutorial to add strikethrough
+let list = document.getElementById('ul');
+list.addEventListener('click', function (ev) {
+    if (ev.target.tagName === 'LI') {
+        ev.target.classList.toggle('checked');
+    }
+}, false);
 
 //console.log('On the other side of the screen, it all looks so easy.');
