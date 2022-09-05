@@ -79,25 +79,42 @@ function renderList() {
         deleteButton.setAttribute('id', `delete${[i]}`);
         deleteButton.innerHTML = 'Delete';
         li.appendChild(deleteButton);
+        deleteButtons.push(deleteButton);
     }
     console.log(taskArray);
     console.log(list);
     // return DOM manipulation assembled list to taskList
-    return list;
+    //return list;
+}
 
-    // event listener and handler for deleteButton
-    // deleteButton.addEventListener('click', function() {
-    //     li.remove();
-    //     console.log(li.id);
-    //     let index = Number(li.id.substring(4));
-    //     console.log(index);
+//-------------------- Event listener for deleting a task
 
-    //     delete taskArray[index];
-    //     taskArray = taskArray.filter(Boolean);
+let deleteButtons = document.getElementsByClassName('deleteButton');
+console.log(deleteButtons);
+for (let i = 0; i < deleteButtons; i++){
+    deleteButtons[i].addEventListener('click', deleteTask);
+    console.log('world');
+}
 
-    //     console.log(taskArray);
+//-------------------- Event handler for deleting a task
 
-    // });
+function deleteTask(event){
+    console.log('hello');
+    let targetId = event.target.id;
+    console.log(targetId);
+
+    let targetLi = taskList.getElementById(targetId);
+    console.log(targetLi);
+
+    // targetLi.remove();
+    // console.log(targetLi.id);
+    // let index = Number(targetLi.id.substring(6));
+    // console.log(index);
+
+    // delete taskArray[index];
+    // taskArray = taskArray.filter(Boolean);
+    // taskList = renderList();
+    // console.log(taskArray);
 }
 
 //-------------------- Local Storage stuff
