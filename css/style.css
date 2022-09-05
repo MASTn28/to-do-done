@@ -13,16 +13,8 @@ button {
 	cursor: initial;
 }
 
-header {
-	margin: auto;
-}
-
-#taskName #listTitle {
-	color: grey;
-}
-
 body {
-	background: lightgrey;
+	background: lightblue;
 	color: darkslategrey;
 	margin-left: 2rem;
 	margin-right: 2rem;
@@ -43,7 +35,7 @@ h3 {
 }
 
 h4 {
-	color: grey;
+	color: darkslategrey;
 	font-size: 0.875rem;
 	font-weight: 700;
 	margin-bottom: 0.5rem;
@@ -55,8 +47,11 @@ h4 {
 
 #priorityOne {
 	margin-left: 1rem;
-	margin-bottom: 1rem;
-	border-radius: .5rem;
+	margin-bottom: 1.5rem;
+	color: darkslategrey;
+	font-weight: 700;
+	font-size: .8rem;
+	border: 0;
 }
 
 .toDoDone input[type="text"] {
@@ -76,7 +71,7 @@ h4 {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-color: #FFF;
+	background-color: white;
 	padding: 1.5rem;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 	border-radius: 0.5rem;
@@ -88,11 +83,11 @@ h4 {
 	width: 100%;
 	font-size: 1.125rem;
 	padding: 1rem .5rem;
-	color: whitesmoke;
+	color: white;
 	font-weight: 600;
 	text-transform: uppercase;
 	background-color: goldenrod;
-	box-shadow: 0px 0px 4px whitesmoke;
+	box-shadow: 0px 0px 4px white;
 	border-radius: 1.5rem;
 	cursor: pointer;
 	transition: 0.2s ease-out;
@@ -112,7 +107,7 @@ h2 {
 	color: darkslategrey;
 	font-weight: 600;
 	text-transform: uppercase;
-	background-color: whitesmoke;
+	background-color: white;
 	margin-bottom: 1rem;
 	margin-top: 3rem;
 }
@@ -125,7 +120,7 @@ li {
 	color: goldenrod;
 	font-weight: 500;
 	text-transform: uppercase;
-	background-color: whitesmoke;
+	background-color: white;
 	box-shadow: 5px black;
 	margin-bottom: .25rem;
 }
@@ -146,7 +141,7 @@ ul li.checked {
 }
 
 ul li:before {
-  content: '✓';
+	content: '✓';
 }
 
 #recallButtons {
@@ -161,11 +156,11 @@ ul li:before {
 	width: 100%;
 	font-size: 1.125rem;
 	padding: 1rem .5rem;
-	color: whitesmoke;
+	color: white;
 	font-weight: 600;
 	text-transform: uppercase;
 	background-color: goldenrod;
-	box-shadow: 0px 0px 4px whitesmoke;
+	box-shadow: 0px 0px 4px white;
 	border-radius: 1.5rem;
 	cursor: pointer;
 	transition: 0.2s ease-out;
