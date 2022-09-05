@@ -50,14 +50,14 @@ function newTask(event) {
 
     let objectText = taskArray[taskArray.length - 1].text;
     let objectPriority = taskArray[taskArray.length - 1].priority;
-    li.innerText = `${objectText}; ${objectPriority}`;
+    li.innerText = `${objectText} -  Priority: ${objectPriority}`;
     list.append(li);
     console.log(taskArray);
 
     let deleteButton = document.createElement('button');
     deleteButton.innerHTML = 'Delete';
     li.appendChild(deleteButton);
-    deleteButton.addEventListener('click', function() {
+    deleteButton.addEventListener('click', function () {
         li.remove();
         delete taskArray[taskArray.length - 1];
     });
@@ -111,5 +111,13 @@ function getList() {
         }
     }
 }
+
+// Used W3schools.com tutorial to add strikethrough
+let list = document.getElementById('ul');
+list.addEventListener('click', function (ev) {
+    if (ev.target.tagName === 'LI') {
+        ev.target.classList.toggle('checked');
+    }
+}, false);
 
 //console.log('On the other side of the screen, it all looks so easy.');

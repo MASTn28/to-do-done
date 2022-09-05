@@ -13,7 +13,7 @@
 <body>
 
     <header>
-        <img src="images/logowhiteyellow.JPG" alt="to-do done logo" width="200" height="120">
+        <img src="img/logowhiteyellow.JPG" alt="to-do done logo" width="200" height="120">
     </header>
 
     <main>
@@ -32,37 +32,30 @@
                     <input type="text" placeholder="e.g. Feed the dog" name="taskName" id="taskname">
 
                     <select placeholder="priority" name="taskPriority" id="priorityOne">
-                        <option value="low">Low priority</option>
-                        <option value="medium">Medium priority</option>
-                        <option value="high">High priority</option>
+                        <option value="low" class="lmh">Low priority</option>
+                        <option value="medium" class="lmh">Medium priority</option>
+                        <option value="high" class="lmh">High priority</option>
                     </select>
                 </div>
                 <button type="submit" id="buttonTask">Add Task</button>
             </form>
         </section>
 
-            <section class="toDoList">
-                <h2 id="h2Title"></h2>
-                <ul id="ul"></ul>
-            </section>
-
-
-        <br>
-
-        <div>
-            <button type="click" id="saveLocal">Save to Local Storage</button>
-        </div>
-
-        <br>
-
-        <div>
-            <button type="click" id="getLocal">Retrieve from Local Storage</button>
-        </div>
-
-        <div>
-            <ul id="printList"></ul>
-        </div>
-
+        <section class="toDoList">
+            <h2 id="h2Title"></h2>
+            <ul id="ul"></ul>
+        </section>
+            
+            <div id="recallButtons">
+                <button type="click" class="recall" id="saveLocal">Save to Local Storage</button>
+          
+                <button type="click" id="getLocal">Retrieve from Local Storage</button>
+            </div>
+            
+            <div>
+                <ul id="printList"></ul>
+            </div>
+            
     </main>
 
     <footer></footer>
