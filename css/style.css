@@ -117,7 +117,9 @@ h2 {
 }
 
 li {
-	display: block;
+	/* display: block; */
+	display: flex;
+	justify-content: space-between;
 	width: 100%;
 	font-size: 1.1rem;
 	padding: .5rem .5rem;
@@ -127,6 +129,13 @@ li {
 	background-color: white;
 	box-shadow: 5px black;
 	margin-bottom: .25rem;
+}
+
+ul {
+	display: block;
+	margin-right: 1rem;
+	cursor: pointer;
+	flex: 1 1 0%;
 }
 
 ul li:nth-child(odd) {
@@ -142,10 +151,6 @@ ul li.checked {
 	background: lightseagreen;
 	color: white;
 	text-decoration: line-through;
-}
-
-ul li:before {
-	content: '✓';
 }
 
 #recallButtons {
