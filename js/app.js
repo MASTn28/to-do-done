@@ -79,7 +79,7 @@ function renderList() {
         deleteButton.setAttribute('id', `delete${[i]}`);
         deleteButton.innerHTML = 'Delete';
         li.appendChild(deleteButton);
-        deleteButtons.push(deleteButton);
+        // deleteButtons.push(deleteButton);
     }
     console.log(taskArray);
     console.log(list);
