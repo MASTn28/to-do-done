@@ -10,7 +10,7 @@ let listTitle = '';
 function Task(text, priority) {
     this.text = text; // store task name/description
     this.priority = priority; // store task priority
-    this.completed; // store task completion task
+    this.completed = false; // store task completion status
     taskArray.push(this); // add task to new last element of taskArray
 }
 
@@ -134,6 +134,7 @@ getLocal.addEventListener('click', getList);
 //-------------------- Function to retrieve key and parse content.
 
 function getList() {
+    document.getElementById('printList').innerHTML = '';
     let retrieve = localStorage.getItem('key');
     if (retrieve) {
         taskArray = JSON.parse(retrieve);
@@ -145,21 +146,32 @@ function getList() {
             let text = taskArray[i].text;
             let priority = taskArray[i].priority;
 
+            let status = taskArray[i].completed;
+
             let li = document.createElement('li');
-            li.innerText = `${text} - Priority: ${priority}`;
+            li.innerText = `${text} - Priority: ${priority} - Status: ${status}`;
             ul.append(li);
+
         }
     }
 }
 
-// Used W3schools.com tutorial to add strikethrough
+//--------------------------- Used W3schools.com tutorial to add strikethrough
+
 let list = document.getElementById('ul');
 list.addEventListener('click', function (ev) {
     if (ev.target.tagName === 'LI') {
+// tagname returns a tag name that is in uppercase.
         ev.target.classList.toggle('checked');
+        // update object property completed to true
+        let index = Number((ev.target.id).substring(4));
+        if (taskArray[index].completed === false) {
+            taskArray[index].completed = true;
+        } else {
+            taskArray[index].completed = false;
+        }
+        console.log(taskArray);
     }
 }, false);
-
-
 
 //console.log('On the other side of the screen, it all looks so easy.');
