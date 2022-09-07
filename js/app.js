@@ -89,12 +89,17 @@ function renderList() {
 //-------------------- Event handler for deleting a task
 
 function deleteTask(event){
+    // get task Id # to be deleted from event.target
     let targetId = (event.target.id).substring(6);
     let targetLi = 'task' + targetId;
+    // remove deleted task from the rendered list
     let deletedTask = document.getElementById(targetLi);
     deletedTask.remove();
+    // remove deleted task from taskArray
     delete taskArray[targetId];
+    // clear taskArray of now empty indices
     taskArray = taskArray.filter(Boolean);
+    // re-render task list
     renderList();
 }
 
