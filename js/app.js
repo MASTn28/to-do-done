@@ -149,7 +149,7 @@ function getList() {
             let status = taskArray[i].completed;
 
             let li = document.createElement('li');
-            li.innerText = `${text} - Priority: ${priority} - Status: ${status}`;
+            li.innerText = `${text} - Priority: ${priority} - Completed: ${status}`;
             ul.append(li);
 
         }

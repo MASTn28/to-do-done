@@ -16,8 +16,7 @@ button {
 body {
 	background: lightblue;
 	color: darkslategrey;
-	margin-left: 2rem;
-	margin-right: 2rem;
+
 }
 
 header {
@@ -54,7 +53,7 @@ h4 {
 	margin-bottom: 1.5rem;
 	color: darkslategrey;
 	font-weight: 700;
-	font-size: .8rem;
+	font-size: .95rem;
 	border: 0;
 }
 
@@ -81,7 +80,7 @@ h4 {
 .toDoDone button[type="submit"] {
 	display: block;
 	width: 100%;
-	font-size: 1.125rem;
+	font-size: 1rem;
 	padding: 1rem .5rem;
 	color: white;
 	font-weight: 600;
@@ -116,6 +115,7 @@ li {
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
+	margin: 0 auto;
 	font-size: 1.1rem;
 	padding: .5rem .5rem;
 	color: goldenrod;
@@ -127,7 +127,6 @@ li {
 }
 
 ul {
-	margin-right: 1rem;
 	cursor: pointer;
 	flex: 1 1 0%;
 }
@@ -147,6 +146,25 @@ ul li.checked {
 	text-decoration: line-through;
 }
 
+.deleteButton {
+	color: goldenrod;
+	font-size: .75;
+	font-weight: 500;
+	text-transform: uppercase;
+	z-index: 1;
+}
+
+.deleteButton:hover {
+	background: goldenrod;
+	color: white;
+}
+
+.deleteButton.checked {
+	background: lightseagreen;
+	color: white;
+	text-decoration: line-through;
+}
+
 #recallButtons {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
@@ -154,10 +172,9 @@ ul li.checked {
 	margin-bottom: 1.5rem;
 }
 
-#getLocal, #saveLocal {
-	display: block;
-	width: 100%;
-	font-size: 1.125rem;
+#getLocal,
+#saveLocal {
+	font-size: .95rem;
 	padding: 1rem .5rem;
 	color: white;
 	font-weight: 600;
