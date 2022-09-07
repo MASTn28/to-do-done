@@ -71,10 +71,6 @@ h4 {
 }
 
 .toDoDone #priorityOne {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
 	background-color: white;
 	padding: 1.5rem;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -117,7 +113,6 @@ h2 {
 }
 
 li {
-	/* display: block; */
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
@@ -132,7 +127,6 @@ li {
 }
 
 ul {
-	display: block;
 	margin-right: 1rem;
 	cursor: pointer;
 	flex: 1 1 0%;
@@ -174,5 +168,6 @@ ul li.checked {
 	cursor: pointer;
 	transition: 0.2s ease-out;
 }
+
 
 /* Inspiration for design and CSS structure from Tyler Potts' video (https://youtu.be/6eFwtaZf6zc) */

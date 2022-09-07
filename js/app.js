@@ -161,7 +161,7 @@ function getList() {
             let priority = taskArray[i].priority;
 
             let li = document.createElement('li');
-            li = `${text} - Priority: ${priority}`;
+            li.innerText = `${text} - Priority: ${priority}`;
             ul.append(li);
         }
     }
