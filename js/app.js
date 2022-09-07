@@ -4,7 +4,6 @@
 
 let taskArray = [];
 let listTitle = '';
-let taskList; // store DOM manipulation for task list
 
 //-------------------- Constructor Function
 
@@ -46,7 +45,7 @@ function newTask(event) {
     //create new Task with user's input values
     new Task(event.target.taskName.value, event.target.taskPriority.value); // (text, priority)
     // print task list on screen
-    taskList = renderList();
+    renderList();
     // reset the add task form to blank/default fields
     document.getElementById('add').reset();
 }
@@ -58,7 +57,7 @@ function renderList() {
     let list = document.getElementById('ul');
     // create vars for DOM manipulation
     let li;
-    let deleteButton;
+    //let deleteButton;
 
     // loop through taskArray to print each task's properties on screen
     for(let i = 0; i < taskArray.length; i++) {
@@ -73,49 +72,30 @@ function renderList() {
         li.innerText = `${objectText}; ${objectPriority}`;
         list.append(li);
 
-        // assign html element and attributes for deleteButton, and append to li
-        deleteButton = document.createElement('button');
+        // assign html element and attributes for deleteButton
+        let deleteButton = document.createElement('button');
         deleteButton.setAttribute('class', 'deleteButton');
         deleteButton.setAttribute('id', `delete${[i]}`);
         deleteButton.innerHTML = 'Delete';
+        // add event listener for deleteButton
+        deleteButton.addEventListener('click', deleteTask);
+        // append deleteButton to li
         li.appendChild(deleteButton);
-        deleteButtons.push(deleteButton);
     }
     console.log(taskArray);
     console.log(list);
-    // return DOM manipulation assembled list to taskList
-    //return list;
-}
-
-//-------------------- Event listener for deleting a task
-
-let deleteButtons = document.getElementsByClassName('deleteButton');
-console.log(deleteButtons);
-for (let i = 0; i < deleteButtons; i++){
-    deleteButtons[i].addEventListener('click', deleteTask);
-    console.log('world');
 }
 
 //-------------------- Event handler for deleting a task
 
 function deleteTask(event){
-    console.log('hello');
-    let targetId = event.target.id;
-    console.log(targetId);
-
-    let targetLi = taskList.getElementById(targetId);
-    console.log(targetLi);
-
-    // targetLi.remove();
-    // console.log(targetLi.id);
-    // let index = Number(targetLi.id.substring(6));
-    // console.log(index);
-
-    // delete taskArray[index];
-    // taskArray = taskArray.filter(Boolean);
-    // taskList = renderList();
-    // console.log(taskArray);
-
+    let targetId = (event.target.id).substring(6);
+    let targetLi = 'task' + targetId;
+    let deletedTask = document.getElementById(targetLi);
+    deletedTask.remove();
+    delete taskArray[targetId];
+    taskArray = taskArray.filter(Boolean);
+    renderList();
 }
 
 //-------------------- Local Storage stuff
