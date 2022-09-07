@@ -69,7 +69,7 @@ function renderList() {
         // assign task properties to li.innertext to be printed on-screen and append li to list
         let objectText = taskArray[i].text;
         let objectPriority = taskArray[i].priority;
-        li.innerText = `${objectText}; ${objectPriority}`;
+        li.innerText = `${objectText} - Priority: ${objectPriority}`;
         list.append(li);
 
         // assign html element and attributes for deleteButton
@@ -146,7 +146,7 @@ function getList() {
             let priority = taskArray[i].priority;
 
             let li = document.createElement('li');
-            li = `${text}. Priority: ${priority}`;
+            li.innerText = `${text} - Priority: ${priority}`;
             ul.append(li);
         }
     }
@@ -159,5 +159,7 @@ list.addEventListener('click', function (ev) {
         ev.target.classList.toggle('checked');
     }
 }, false);
+
+
 
 //console.log('On the other side of the screen, it all looks so easy.');
