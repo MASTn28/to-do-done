@@ -1,0 +1,35 @@
+header {
+	height: 8rem;
+	background-color: white;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 1.25rem;
+	font-weight: 600;
+	color: #002241;
+}
+
+header img {
+	height: 100%;
+}
+
+header a {
+	text-decoration: none;
+}
+
+main {
+  background-color: lightgoldenrodyellow;
+  margin: 1.5rem 8rem;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  color: goldenrod;
+  margin: 1rem 1rem;
+}
+
+.profilePic {
+  height: 8rem;
+  margin: 1rem 1rem;
+}
