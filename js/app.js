@@ -1,7 +1,5 @@
 'use strict';
 
-// Tom's code under branch tom1
-
 let taskArray = [];
 let listTitle = '';
 
@@ -82,8 +80,6 @@ function renderList() {
         // append deleteButton to li
         li.appendChild(deleteButton);
     }
-    console.log(taskArray);
-    console.log(list);
 }
 
 //-------------------- Event handler for deleting a task
@@ -120,7 +116,16 @@ localStore.addEventListener('click', saveList);
 //-------------------- Function called on click.Turns all array object -> strings
 
 function saveList() {
+    // write taskArray to local storage
     let localList = JSON.stringify(taskArray);
+    // modify text displayed on saveLocal button when user clicks it
+    let saveButton = document.getElementById('saveLocal');
+    saveButton.innerHTML = 'List Saved';
+    // reset saveLocal button after 5 seconds to original text
+    setTimeout(() => {
+        saveButton.innerHTML = 'Save List';
+    }, 5000);
+    // return local storage
     return localStorage.setItem('key', localList);
 
     // condition to prevent null being saved to localStorage.
@@ -135,6 +140,8 @@ getLocal.addEventListener('click', getList);
 
 function getList() {
     document.getElementById('printList').innerHTML = '';
+    document.getElementById('printTitle').innerHTML = JSON.parse(localStorage.getItem('title'));
+
     let retrieve = localStorage.getItem('key');
     if (retrieve) {
         taskArray = JSON.parse(retrieve);
@@ -161,7 +168,7 @@ function getList() {
 let list = document.getElementById('ul');
 list.addEventListener('click', function (ev) {
     if (ev.target.tagName === 'LI') {
-// tagname returns a tag name that is in uppercase.
+    // tagname returns a tag name that is in uppercase.
         ev.target.classList.toggle('checked');
         // update object property completed to true
         let index = Number((ev.target.id).substring(4));
@@ -170,8 +177,5 @@ list.addEventListener('click', function (ev) {
         } else {
             taskArray[index].completed = false;
         }
-        console.log(taskArray);
     }
 }, false);
-
-//console.log('On the other side of the screen, it all looks so easy.');
