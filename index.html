@@ -14,27 +14,29 @@
 
     <header>
         <img src="img/logowhiteyellow.JPG" alt="to-do done logo" width="200" height="120">
+    <a href="about.html">About Us</a>
+    <a href="#title">Start Your To-Do</a>
     </header>
 
     <main>
 
         <section class="toDoDone">
             <form id="title">
-                <h4>Name your list</h4>
+                <h4 id="nameYourTitle">Name your list</h4>
                 <input type="text" placeholder="e.g. Weekend Honey Do List" name="listTitle" id="listTitle">
                 <button type="submit" id="buttonTitle">Add Title</button>
             </form>
 
-            <h4>What do you have to-do?</h4>
+            <h4>What do you have to-do? Priority?</h4>
 
             <form id="add">
                 <div id="taskPriority">
                     <input type="text" placeholder="e.g. Feed the dog" name="taskName" id="taskName">
 
                     <select placeholder="priority" name="taskPriority" id="priorityOne">
-                        <option value="low" class="lmh">Low Priority</option>
-                        <option value="medium" class="lmh">Medium Priority</option>
-                        <option value="high" class="lmh">High Priority</option>
+                        <option value="low" class="lmh">Low</option>
+                        <option value="medium" class="lmh">Medium</option>
+                        <option value="high" class="lmh">High</option>
                     </select>
                 </div>
                 <button type="submit" id="buttonTask">Add Task</button>
@@ -53,12 +55,13 @@
             </div>
             
             <div>
+                <h2 id="printTitle"></h2>
                 <ul id="printList"></ul>
             </div>
             
     </main>
 
-    <footer></footer>
+    <footer>© to-do done 2022</footer>
 
     <script src="js/app.js"></script>
 </body>
