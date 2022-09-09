@@ -21,13 +21,16 @@ formTitle.addEventListener('submit', newTitle);
 
 function newTitle(event) {
     event.preventDefault();
-    listTitle = event.target.listTitle.value;
-    document.getElementById('title').innerHTML = '';
-    let getTitle = document.getElementById('h2Title');
-    getTitle.innerText = listTitle;
-
-    saveTitle();
-    // saveTitle invokes function to save title to local storage.
+    if (event.target.listTitle.value.length < 1){
+        alert('Please enter a title for you to-do list');
+    } else {
+        listTitle = event.target.listTitle.value;
+        document.getElementById('title').innerHTML = '';
+        let getTitle = document.getElementById('h2Title');
+        getTitle.innerText = listTitle;
+        saveTitle();
+        // saveTitle invokes function to save title to local storage.
+    }
 }
 
 //-------------------- Event listener for adding a new task
@@ -40,10 +43,15 @@ formAdd.addEventListener('submit', newTask);
 function newTask(event) {
     // prevent page refresh
     event.preventDefault();
-    //create new Task with user's input values
-    new Task(event.target.taskName.value, event.target.taskPriority.value); // (text, priority)
-    // print task list on screen
-    renderList();
+    // input validation
+    if (event.target.taskName.value.length < 1) {
+        alert('Please enter a task name');
+    } else {
+        //create new Task with user's input values
+        new Task(event.target.taskName.value, event.target.taskPriority.value); // (text, priority)
+        // print task list on screen
+        renderList();
+    }
     // reset the add task form to blank/default fields
     document.getElementById('add').reset();
 }
@@ -121,10 +129,10 @@ function saveList() {
     // modify text displayed on saveLocal button when user clicks it
     let saveButton = document.getElementById('saveLocal');
     saveButton.innerHTML = 'List Saved';
-    // reset saveLocal button after 5 seconds to original text
+    // reset saveLocal button after 3 seconds to original text
     setTimeout(() => {
         saveButton.innerHTML = 'Save List';
-    }, 5000);
+    }, 3000);
     // return local storage
     return localStorage.setItem('key', localList);
 
